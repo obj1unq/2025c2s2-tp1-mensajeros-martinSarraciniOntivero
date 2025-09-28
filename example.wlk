@@ -2,11 +2,9 @@ object paquete{
     var property  pago = false 
     var property destino = destPuenteBrooklyn 
     var property persona = jeanGray
-    method estaPago(){
-        return pago
-    }
+
     method sePuedeEnviar(){ 
-        return self.estaPago() and destino.puedePasar(persona)
+        return self.pago() and destino.puedePasar(persona)
     }
 }
 
@@ -17,7 +15,7 @@ object destPuenteBrooklyn{
 }
 
 object destLaMatrix{
-    method puedeLlamar(persona){
+    method puedePasar(persona){
         return persona.puedeLlamar()
     }
 
@@ -49,38 +47,29 @@ object Neo {
 }
 
 object saraConnor {
-  var peso = 0
+  var property peso = 0
+  var property vehiculo = moto
   method puedeLlamar(){
     return false
   }
-  method pesoSara(kilosSara){
-    peso = kilosSara
-    return peso
-  }
-  method pesoSaraCon(vehiculo){
-    peso = peso + vehiculo.peso()
-  }
   method pesoTotal(){
-    return peso
+    return peso + vehiculo.peso()
   }
 }
 
 object moto{
-    var kilos = 100
+    var peso = 100
     method peso(){
-        return kilos
+        return peso
     }
 }
 
 object camion{
-    var kilos = 500
+    var peso = 500
     const kiloAcoplado = 500
-    method calcularKiloscamionCon(cantAcoplados){
-        kilos = kilos + kiloAcoplado * cantAcoplados
-        return kilos 
-    }
+    var property cantAcoplados = 0
     method peso(){
-        return kilos
+        return peso + (kiloAcoplado * cantAcoplados)
     }
 }
 
