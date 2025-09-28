@@ -1,0 +1,34 @@
+import example.*
+
+test "caso 1"{
+    paquete.destino(destLaMatrix)
+    paquete.persona(jeanGray)
+    paquete.pago(false)
+    assert.equals(false, paquete.sePuedeEnviar())
+}
+
+test "caso 2 "{
+    paquete.destino(destLaMatrix)
+    paquete.persona(jeanGray)
+    paquete.pago(true)
+    assert.equals(true, paquete.sePuedeEnviar())
+}
+
+test "caso 3"{
+    camion.cantAcoplados(1)
+    saraConnor.vehiculo(camion)
+    saraConnor.peso(70)
+    paquete.destino(destPuenteBrooklyn)
+    paquete.pago(true)
+    paquete.persona(saraConnor)
+    assert.equals(false, paquete.sePuedeEnviar())
+}
+
+test "caso 4"{
+    saraConnor.vehiculo(moto)
+    saraConnor.peso(70)
+    paquete.destino(destPuenteBrooklyn)
+    paquete.pago(true)
+    paquete.persona(saraConnor)
+    assert.equals(true, paquete.sePuedeEnviar())
+}
